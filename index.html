@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sivan's Ultra-Calculator</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- עוטף מרכזי שממקם הכל בול באמצע הדף -->
+  <main class="page-center">
+    <h1 class="brand">Sivan's Ultra-Calculator</h1>
+
+    <section class="calculator-wrap">
+      <div class="calculator">
+        <div class="screen">
+          <div id="history" class="history"></div>
+          <div id="display" class="display">0</div>
+        </div>
+
+        <div class="keys">
+          <!-- Memory -->
+          <button data-type="mem" data-mem="MC">MC</button>
+          <button data-type="mem" data-mem="MR">MR</button>
+          <button data-type="mem" data-mem="MPLUS">M+</button>
+          <button data-type="mem" data-mem="MMINUS">M-</button>
+
+          <!-- Unary -->
+          <button data-type="unary" data-op="square">x²</button>
+          <button data-type="unary" data-op="sqrt">√x</button>
+          <button data-type="unary" data-op="inv">1/x</button>
+          <button data-type="percent">%</button>
+
+          <!-- Numbers + Operators -->
+          <button data-type="number" data-value="7">7</button>
+          <button data-type="number" data-value="8">8</button>
+          <button data-type="number" data-value="9">9</button>
+          <button data-type="op" data-op="/">/</button>
+
+          <button data-type="number" data-value="4">4</button>
+          <button data-type="number" data-value="5">5</button>
+          <button data-type="number" data-value="6">6</button>
+          <button data-type="op" data-op="*">*</button>
+
+          <button data-type="number" data-value="1">1</button>
+          <button data-type="number" data-value="2">2</button>
+          <button data-type="number" data-value="3">3</button>
+          <button data-type="op" data-op="-">-</button>
+
+          <button data-type="neg">±</button>
+          <button data-type="number" data-value="0" class="zero">0</button>
+          <button data-type="dot">.</button>
+          <button data-type="op" data-op="+">+</button>
+
+          <button data-type="clear" class="danger">C</button>
+          <button data-type="backspace">⌫</button>
+          <button data-type="equal" class="equal">=</button>
+        </div>
+      </div>
+
+      <!-- כפתור הוראות -->
+      <button id="open-instructions" class="instructions-btn" type="button" aria-haspopup="dialog" aria-controls="instructions-modal">
+        Instructions
+      </button>
+      <p class="footer-note">created in 2025 · designed by Dratviman's touch</p>
+    </section>
+  </main>
+
+  <!-- חלונית הוראות (Modal) -->
+  <div id="instructions-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="document">
+      <header class="modal-header">
+        <h2 id="modal-title">How to use the calculator</h2>
+        <button class="modal-close" type="button" aria-label="Close" data-close>×</button>
+      </header>
+
+      <div class="modal-body">
+        <ul class="modal-list">
+          <li><strong>Digits:</strong> 0–9</li>
+          <li><strong>Decimal point:</strong> <kbd>.</kbd></li>
+          <li><strong>Operators:</strong> <kbd>+</kbd> <kbd>-</kbd> <kbd>*</kbd> <kbd>/</kbd></li>
+          <li><strong>Calculate:</strong> <kbd>Enter</kbd></li>
+          <li><strong>Delete digit:</strong> <kbd>Backspace</kbd></li>
+          <li><strong>Clear:</strong> <kbd>Esc</kbd> (C)</li>
+          <li><strong>Extras:</strong> ±, %, x², √x, 1/x, Memory (MC/MR/M+/M-)</li>
+          <li><strong>Divide by zero:</strong> shows “Error”.</li>
+        </ul>
+        <p class="modal-note">For additional notes — please contact the developer.</p>
+      </div>
+
+      <footer class="modal-footer">
+        <button class="modal-action" type="button" data-close>Got it</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
